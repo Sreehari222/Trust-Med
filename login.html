@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+ 
+  <style>
+.login-box {
+  position: relative;
+  margin-top: 250px;
+  margin-bottom: 20px;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #020039;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+    .eye-button {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+  
+    .eye-button .eye-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      color: #09f831;
+    }
+  
+    .eye-button .eye-icon.active {
+      color: #5200eb;
+    }
+    
+    .login-box button {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: #03e9f4;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: .5s;
+      margin-top: 40px;
+      letter-spacing: 4px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background: #03e9f4;
+      color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #03e9f4,
+                  0 0 25px #03e9f4,
+                  0 0 50px #03e9f4,
+                  0 0 100px #03e9f4;
+    }
+
+    .login-box button span {
+      position: absolute;
+      display: block;
+    }
+
+    .login-box button span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #03e9f4);
+      animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+      50%,100% {
+        left: 100%;
+      }
+    }
+
+    .login-box button span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, #03e9f4);
+      animation: btn-anim2 1s linear infinite;
+      animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+      0% {
+        top: -100%;
+      }
+      50%,100% {
+        top: 100%;
+      }
+    }
+
+    .login-box button span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(270deg, transparent, #03e9f4);
+      animation: btn-anim3 1s linear infinite;
+      animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+      0% {
+        right: -100%;
+      }
+      50%,100% {
+        right: 100%;
+      }
+    }
+
+    .login-box button span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, #03e9f4);
+      animation: btn-anim4 1s linear infinite;
+      animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+      0% {
+        bottom: -100%;
+      }
+      50%,100% {
+        bottom: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top-bar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <ul class="top-bar-info list-inline-item pl-0 mb-0">
+              <li class="list-inline-item"><a href="mailto:support@gmail.com"><i class="icofont-support-faq mr-2"></i>trustmed108@gmail.com</a></li>
+              <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Address calicut, govindapuram </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
+              <a href="tel:+23-345-67890" >
+                <span>Call Now : </span>
+                <span class="h4">9037502150</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navigation" id="navbar">
+      <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <h2>Trust-med</h2>
+          </a>
+  
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icofont-navigation-menu"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarmain">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home</a>
+          </li>
+           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
+  
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments <i class="icofont-thin-down"></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown02">
+              <li><a class="dropdown-item" href="department-single.html">Gernal department</a></li>
+              <li><a class="dropdown-item" href="department cardio -single.html">cardio department</a></li>
+              <li><a class="dropdown-item" href="department ortho-single.html">Ortho department</a></li>
+              <li><a class="dropdown-item" href="department neurology.html">Neurology department</a></li>
+              <li><a class="dropdown-item" href="department critical care.html">critical Care department</a></li>
+              <li><a class="dropdown-item" href="department dental.html">Dentel department</a></li>
+              <li><a class="dropdown-item" href="department dental.html">Dermatology department</a></li>
+              <li><a class="dropdown-item" href="department emergency.html">emergency department</a></li>
+            </ul>
+            </li>
+  
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="doctor.html" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown03">
+              <li><a class="dropdown-item" href="doctor.html">Doctors</a></li>
+              <li><a class="dropdown-item" href="appoinmentform.html">Appoinment</a></li>
+            </ul>
+            </li>
+            </li>
+           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+           <li class="nav-item"><a class="nav-link" href="ui-404.html">Charity</a></li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="loginvali.php" method="post">
+      <div class="user-box">
+        <input type="email" id="email" name="email" required>
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="password" id="pw" name="pw" required>
+        <label>Password</label>
+        <div class="eye-button" onclick="togglePasswordVisibility()">
+          <i class="fa fa-eye"></i>
+        </div>
+      </div>
+      <button type="submit" name="save">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Submit
+      </button>
+    </form>
+    <div class="w-100 text-center mt-4 text">
+      <p class="mb-0">Don't have an account?</p>
+      <a href="signup.html">Sign Up</a>
+      </div>
+  </div>
+  <footer class="footer section gray-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mr-auto col-sm-6">
+          <div class="widget mb-5 mb-lg-0">
+            <div class="logo mb-4">
+              <h2>TRUST-MED</h2>
+            </div>
+            <p> We committed to achieve highest level of quality through professionalism, innovation and ethical practices in every aspect of patient care.</p>
+  
+            <ul class="list-inline footer-socials mt-4">
+              <li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i class="icofont-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/themefisher"><i class="icofont-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.pinterest.com/themefisher/"><i class="icofont-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="widget mb-5 mb-lg-0">
+            <h4 class="text-capitalize mb-3">Department</h4>
+            <div class="divider mb-4"></div>
+  
+            <ul class="list-unstyled footer-menu lh-35">
+              <li><a href="#">Surgery </a></li>
+              <li><a href="#">Wome's Health</a></li>
+              <li><a href="#">Radiology</a></li>
+              <li><a href="#">Cardioc</a></li>
+              <li><a href="#">Medicine</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-lg-2 col-md-6 col-sm-6">
+          <div class="widget mb-5 mb-lg-0">
+            <h4 class="text-capitalize mb-3">Support</h4>
+            <div class="divider mb-4"></div>
+  
+            <ul class="list-unstyled footer-menu lh-35">
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Company Support </a></li>
+              <li><a href="#">FAQuestions</a></li>
+              <li><a href="#">Company Licence</a></li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="widget widget-contact mb-5 mb-lg-0">
+            <h4 class="text-capitalize mb-3">Get in Touch</h4>
+            <div class="divider mb-4"></div>
+  
+            <div class="footer-contact-block mb-4">
+              <div class="icon d-flex align-items-center">
+                <i class="icofont-email mr-3"></i>
+                <span class="h6 mb-0">Support Available for 24/7</span>
+              </div>
+              <h4 class="mt-2"><a href="tel:+23-345-67890">testmed108@gmail.com</a></h4>
+            </div>
+  
+            <div class="footer-contact-block">
+              <div class="icon d-flex align-items-center">
+                <i class="icofont-support mr-3"></i>
+                <span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
+              </div>
+              <h4 class="mt-2"><a href="tel:+23-345-67890">9037502150</a></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-btm py-4 mt-5">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-lg-6">
+            <div class="copyright">
+              &copy; Copyright Reserved to <span class="text-color">Trust-Med</span> by <a href="https://themefisher.com/" target="_blank">Govt in 1997</a>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <a class="backtop js-scroll-trigger" href="#top">
+              <i class="icofont-long-arrow-up"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+ 
+  <script>
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("pw");
+      var eyeIcon = document.querySelector(".eye-button .eye-icon");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.classList.add("active");
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.classList.remove("active");
+      }
+    }
+  </script>
+</body>
+</html>
